@@ -13,6 +13,7 @@
   "scripts": {
     "build": "webpack --mode='production'",
     "dev": "webpack-dev-server",
+    "deploy": "yarn run build && gh-pages -d dist/",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "cypress:open": "cypress open"
@@ -36,5 +37,7 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gh-pages": "^2.1.1"
+  }
 }
