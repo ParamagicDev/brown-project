@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "webpack --mode='production'",
+    "dev": "webpack-dev-server",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "cypress:open": "cypress open"
