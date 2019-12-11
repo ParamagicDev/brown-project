@@ -17,6 +17,7 @@ yarn run dev # open up in the browser @ localhost:8080
 
 ```bash
 docker build . --tag=brown-project
+docker run yarn run test
 ```
 
 ## Assignment
