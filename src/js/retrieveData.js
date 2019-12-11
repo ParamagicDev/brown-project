@@ -3,15 +3,23 @@ import appendParameters from './appendParameters.js';
 export default async function retrieveData(url, parameters) {
   const newUrl = appendParameters(url, parameters);
 
-  const response = await fetch(newUrl, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  try {
+    const response = await fetch(newUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  const result = await response.json();
-  console.log(JSON.stringify(result));
+    // Handles any non 200-299 status codes. 404's / 500's do not error out
+    if (!response.ok) {
+      return null;
+    }
 
-  return result;
+    const result = await response.json();
+    console.log(JSON.stringify(result));
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 }
