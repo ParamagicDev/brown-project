@@ -12,5 +12,5 @@ RUN yarn install
 COPY . /myapp
 
 EXPOSE 8080
-CMD ['yarn', 'run', 'dev']
+CMD ['yarn', 'run']
 

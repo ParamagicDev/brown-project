@@ -11,6 +11,7 @@
     "url": "https://github.com/ParamagicDev/brown-project.git"
   },
   "scripts": {
+    "build": "webpack --mode='production'",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "cypress:open": "cypress open"
