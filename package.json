@@ -10,11 +10,17 @@
     "type": "git",
     "url": "https://github.com/ParamagicDev/brown-project.git"
   },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "cypress:open": "cypress open"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "babel-jest": "^24.9.0",
     "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.3.0",
     "cypress": "^3.7.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.19.1",
@@ -22,12 +28,10 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
     "regenerator-runtime": "^0.13.3",
+    "style-loader": "^1.0.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
-  "dependencies": {
-    "css-loader": "^3.3.0",
-    "style-loader": "^1.0.1"
-  }
+  "dependencies": {}
 }
