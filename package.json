@@ -1,0 +1,9 @@
+{
+  "name": "brown-project",
+  "version": "1.0.0",
+  "description": "A project to display 20 random users using randomuser.me",
+  "main": "index.js",
+  "author": "Konnor Rogers",
+  "license": "MIT",
+  "private": true
+}
