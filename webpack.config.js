@@ -8,9 +8,37 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  module: {},
+  module: {
+    rules: [
+      // Load css
+      {
+        test: /\.css/,
+        use: ['style-loader', 'css-loader'],
+      },
+
+      // Load javascript to babel
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
+  },
+
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({template: './src/index.html'}),
   ],
+
+  devServer: {
+    open: true,
+    contentBase: path.resolve(__dirname, 'dist'),
+    watchContentBase: true,
+    compress: true,
+  },
 };
