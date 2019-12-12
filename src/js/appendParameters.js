@@ -1,4 +1,9 @@
 export default function appendParameters(url, parameters) {
+  // If the obj given is blank, dont append anything
+  if (Object.entries(parameters).length === 0) {
+    return url;
+  }
+
   let newUrl = url + '/?';
 
   const paramsAry = Object.values(parameters);

@@ -1,4 +1,4 @@
-import {appendParameters, retrieveData} from '../src/index.js';
+import appendParameters from '../src/js/appendParameters.js';
 
 describe('appendParameters()', () => {
   test('Should append parameters to a given url', () => {
@@ -13,5 +13,12 @@ describe('appendParameters()', () => {
     expect(newUrl).toBe(
       `${url}/?${parameters.nationality}&${parameters.users}&${parameters.include}`,
     );
+  });
+
+  test('Should not do anything given an empty params', () => {
+    const url = 'https://randomuser.me/api';
+    const params = {};
+    const newUrl = appendParameters(url, params);
+    expect(newUrl).toBe(url);
   });
 });

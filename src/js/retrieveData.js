@@ -20,5 +20,6 @@ export default async function retrieveData(url, parameters) {
     return result;
   } catch (error) {
     console.log(error);
+    return false;
   }
 }
