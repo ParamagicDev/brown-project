@@ -29,9 +29,10 @@ p {
 
 #sort-select,
 .sort-label {
+  text-align: center;
+  text-align-last: center;
   margin: 0 auto;
   display: block;
-  text-align: center;
 }
 
 .container {

@@ -1,43 +1,82 @@
+import sortingPeople from './sortingPeople.js';
 export default function SortBtn() {
+  const _nameOptions = ['(A-Z)', '(Z-A)'];
+
   const renderLabel = () => {
     const label = document.createElement('label');
+
     label.for = 'sort-select';
     label.className = 'sort-label';
     label.innerText = 'Sort by:';
+
     return label;
   };
 
-  const renderOptions = () => {
+  const renderInitialOpt = () => {
+    const initialOpt = document.createElement('option');
+    initialOpt.value = '';
+    initialOpt.innerText = '-- Select a sorting method --';
+    return initialOpt;
+  };
+
+  const renderFirstName = () => {
     const docFrag = new DocumentFragment();
-    const firstName = document.createElement('optgroup');
-    const lastName = document.createElement('optgroup');
-    const dateOfBirth = document.createElement('optgroup');
-
-    firstName.label = 'First Name';
-    lastName.label = 'Last Name';
-    dateOfBirth.label = 'Date of birth';
-
-    const nameOptions = ['(A-Z)', '(Z-A)'];
-
-    nameOptions.forEach(opt => {
+    const optgroup = document.createElement('optgroup');
+    optgroup.label = 'First Name';
+    _nameOptions.forEach(opt => {
       const optElement = document.createElement('option');
-      optElement.innerText = opt;
-      const optClone = optElement.cloneNode(true);
-      firstName.appendChild(optElement);
-      lastName.appendChild(optClone);
+      optElement.innerText = 'First Name: ' + opt;
+      optgroup.appendChild(optElement);
     });
+
+    docFrag.appendChild(optgroup);
+    return docFrag;
+  };
+
+  const renderLastName = () => {
+    const docFrag = new DocumentFragment();
+    const optgroup = document.createElement('optgroup');
+    optgroup.label = 'Last Name';
+    _nameOptions.forEach(opt => {
+      const optElement = document.createElement('option');
+      optElement.innerText = 'Last Name: ' + opt;
+      optgroup.appendChild(optElement);
+    });
+
+    docFrag.appendChild(optgroup);
+    return docFrag;
+  };
+
+  const renderDateOfBirth = () => {
+    const docFrag = new DocumentFragment();
+
+    const optgroup = document.createElement('optgroup');
+    optgroup.label = 'Date Of Birth';
 
     const dobOptions = ['(Jan-Dec)', '(Dec-Jan)'];
     dobOptions.forEach(opt => {
       const optElement = document.createElement('option');
-      optElement.innerText = opt;
-      dateOfBirth.appendChild(optElement);
+      optElement.innerText = 'DOB: ' + opt;
+      optgroup.appendChild(optElement);
     });
 
-    const opts = [firstName, lastName, dateOfBirth];
+    docFrag.appendChild(optgroup);
+    return docFrag;
+  };
+
+  const renderOptions = () => {
+    const docFrag = new DocumentFragment();
+
+    const opts = [
+      renderInitialOpt(),
+      renderFirstName(),
+      renderLastName(),
+      renderDateOfBirth(),
+    ];
     opts.forEach(e => docFrag.appendChild(e));
     return docFrag;
   };
+
   const render = () => {
     const docFrag = new DocumentFragment();
 

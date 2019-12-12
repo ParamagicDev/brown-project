@@ -1,4 +1,5 @@
 import retrieveData from './retrieveData.js';
+import SortBtn from './sortBtn.js';
 import Person from './person.js';
 
 export default function DataBtn() {
@@ -18,11 +19,19 @@ export default function DataBtn() {
     // Use docfrags for better performance
     const docFrag = new DocumentFragment();
 
+    // Add sorting functionality
+    const sortBtn = SortBtn();
+
+    const people = [];
+
     data['results'].forEach(personAttrs => {
       const person = new Person(personAttrs);
+      people.push(person);
       docFrag.appendChild(person.render());
     });
 
+    // document.body.insertBefore(sortBtn.render(), docFrag.childNodes[0]);
+    docFrag.insertBefore(sortBtn.render(people), docFrag.childNodes[0]);
     element.innerHTML = '';
     element.appendChild(docFrag);
   }
