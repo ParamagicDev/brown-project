@@ -37,12 +37,26 @@ async function createPeople(element) {
 
       val.innerText = ': ';
 
+      console.log(value);
       switch (key) {
         case 'name':
           val.innerText += `${value.first} ${value.last}`;
           break;
         case 'dob':
-          val.innerText += value.dob;
+          val.innerText += value.date;
+          const birthday = document.createElement('p');
+          birthday.className('label');
+          birthday.innerText('birthday');
+          const birthdayVal = document.createElement('span');
+          birthdayVal.className('value');
+
+          const bday = new Date();
+
+          let bdayVal = `${bday.getDate()} / ${bday.getMonth()} / ${bday.getYear()}`;
+
+          // if () {
+          // }
+          birthdayVal.innerText(``);
           break;
       }
 
