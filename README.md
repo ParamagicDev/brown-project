@@ -92,3 +92,9 @@ so meant to test internal APIs. As such, I cut it from the project.
 
 - Using [date-fns](https://date-fns.org/) for comparing dates.
 - Using [lodash](https://lodash.com/) for sorting algorithms.
+
+## Talking points
+
+Sorting functionality
+
+Off by one errors with dates when comparing with localtime vs UTC time. Theoretically, its a persons birthday in one time zone but not another.
