@@ -29,19 +29,22 @@ Public API: https://randomuser.me
 
 ### Requirements:
 
-[ ] Making a single call to the randomuser.me API, get 20 random users.
-[ ] Do not make additional calls to the API.
-[ ] Users in the result set should be from the United States or Canada.
-[ ] Display the following fields for each user:
-[ ] Gender
-[ ] First name
-[ ] Last name
-[ ] Country
-[ ] Date of birth
+[x] Making a single call to the randomuser.me API, get 20 random users.
+[x] Do not make additional calls to the API.
+[x] Users in the result set should be from the United States or Canada.
+
+#### Display the following fields for each user:
+
+[x] Gender
+[x] First name
+[x] Last name
+[x] Country
+[x] Date of birth
 [ ] Create and display an additional “Birthday” field whose value is dynamically
 calculated.
-[ ] The value should identify if the user’s birthday: a) already happened, b) is
-today(!), or c) has yet to occur, based on today’s date for the current year.
+
+- The value should identify if the user’s birthday: a) already happened, b) is
+  today(!), or c) has yet to occur, based on today’s date for the current year.
 
 Optional (Bonus Feature)
 
@@ -52,10 +55,9 @@ descending order
 
 [ ] Using Docker to create a consistent testing environment and allow people to
 use a nodejs runtime if they don't have it installed (and cross platform)
-[ ] Use Webpack for code bundling
-[ ] Use babel for transpiling to ES5
-[ ] Use Jest for unit / integration testing
-[ ] Use Cypress for End to End testing
+[x] Use Webpack for code bundling
+[x] Use babel for transpiling to ES5
+[x] Use Jest for unit / integration testing
 
 ## Point of interest
 
@@ -65,6 +67,6 @@ and is the latest way to aynschronously retrieve data.
 Uses vanilla JS. Does not use jQuery, React, Vue, etc. All felt a little too heavy
 handed for the project.
 
-Webpack / Jest / Babel / Cypress used due to having written multiple sites with the
-libraries. Even wrote a blog post on it. <br>
+I used Webpack / Jest / Babel due to having written multiple sites with the
+libraries. I even wrote a blog post on it. <br>
 [https://paramagicdev.github.io/my-blog/javascript/usingJestWithImportAndExport/](https://paramagicdev.github.io/my-blog/javascript/usingJestWithImportAndExport/)
