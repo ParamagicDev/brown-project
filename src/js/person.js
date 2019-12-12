@@ -83,6 +83,23 @@ export default class Person {
     const today = comparedDate || new Date();
 
     // Prior month
+    if (this.dobMonth < today.getMonth()) {
+      return true;
+    }
+    // Account for same month, but prior day
+    else if (
+      this.dobMonth === today.getMonth() &&
+      this.dobDay < today.getDate()
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
+  birthdayHasNotHappened(comparedDate) {
+    const today = comparedDate || new Date();
+
     if (this.dobMonth > today.getMonth()) {
       return true;
     }
@@ -95,11 +112,6 @@ export default class Person {
     }
 
     return false;
-  }
-
-  birthdayHasNotHappened(comparedDate) {
-    const today = comparedDate || new Date();
-    return !this.birthdayHasHappened(today);
   }
 
   renderBirthday() {
