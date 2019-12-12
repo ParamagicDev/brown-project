@@ -11,6 +11,7 @@ cd brown-project
 yarn install
 yarn test # run the test suite
 yarn run dev # open up in the browser @ localhost:8080
+yarn run deploy # deploys to gh-pages
 ```
 
 ### Using Docker
@@ -20,9 +21,12 @@ docker build . --tag=brown-project
 # Runs yarn dev
 docker run -p 8080:8080 -v $(pwd):/myapp brown-project
 # Running the test suite
-docker exec brown-project yarn run test
-# To watch the test suite
-docker run --rm brown-project yarn run test:watch
+docker run -it brown-project yarn run test
+# To watch the test suite for changes
+docker run -it -v $(pwd):/myapp brown-project yarn run test:watch
+
+# Deployment to github pages
+docker run -it brown-project yarn run deploy
 ```
 
 Now you can open up localhost:8080 in the browser and view the project
