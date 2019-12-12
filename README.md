@@ -17,7 +17,12 @@ yarn run dev # open up in the browser @ localhost:8080
 
 ```bash
 docker build . --tag=brown-project
+# Runs yarn dev
 docker run -p 8080:8080 -v $(pwd):/myapp brown-project
+# Running the test suite
+docker exec brown-project yarn run test
+# To watch the test suite
+docker run --rm brown-project yarn run test:watch
 ```
 
 Now you can open up localhost:8080 in the browser and view the project
@@ -74,3 +79,12 @@ libraries. I even wrote a blog post on it. <br>
 [https://paramagicdev.github.io/my-blog/javascript/usingJestWithImportAndExport/](https://paramagicdev.github.io/my-blog/javascript/usingJestWithImportAndExport/)
 
 Everything can be run through Docker.
+
+Originally, I planned to have an end to end testing suite with Cypress. However, testing
+external APIs is clearly stated in their documentation as being fragile. It is more
+so meant to test internal APIs. As such, I cut it from the project.
+
+## Other possibilities
+
+- Using [date-fns](https://date-fns.org/) for comparing dates.
+- Using [lodash](https://lodash.com/) for sorting algorithms.

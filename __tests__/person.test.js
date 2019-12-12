@@ -80,9 +80,9 @@ describe('Person()', () => {
       expect(person.birthdayIsToday(today)).toBe(true);
     });
 
-    test('Should return false if their birthday is not today', () => {
+    test('Should return false if their birthday is in the past', () => {
       const person = new Person(mockPerson);
-      const today = new Date(2018, 7, 20);
+      const today = new Date(2018, 7, 29);
       expect(person.birthdayIsToday(today)).toBe(false);
     });
   });
@@ -108,11 +108,11 @@ describe('Person()', () => {
 
     test('Should work with other months', () => {
       const person = new Person(mockPerson);
-      let today = new Date(2018, 6, 27);
+      let today = new Date(2018, 6, 20);
 
       expect(person.birthdayHasHappened(today)).toBe(false);
 
-      today = new Date(2018, 8, 27);
+      today = new Date(2018, 8, 20);
       expect(person.birthdayHasHappened(today)).toBe(true);
     });
   });
@@ -131,7 +131,7 @@ describe('Person()', () => {
 
     test('Should return false if the persons birthday is in the past', () => {
       const person = new Person(mockPerson);
-      const today = new Date(2018, 9, 30);
+      const today = new Date(2018, 9, 29);
       expect(person.birthdayHasNotHappened(today)).toBe(false);
     });
 
