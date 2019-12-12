@@ -17,7 +17,7 @@ yarn run dev # open up in the browser @ localhost:8080
 
 ```bash
 docker build . --tag=brown-project
-docker run -p 8080:8080 brown-project
+docker run -p 8080:8080 -v $(pwd):/myapp brown-project
 ```
 
 Now you can open up localhost:8080 in the browser and view the project
