@@ -111,9 +111,9 @@ export default class Person {
   renderBirthday() {
     const birthday = document.createElement('p');
     const values = {
-      happened: 'already happened.',
-      isToday: 'is today!',
-      hasNotHappened: 'has yet to occur.',
+      happened: 'Birthday already happened.',
+      isToday: 'Birthday is today!',
+      hasNotHappened: 'Birthday has yet to occur.',
     };
 
     if (this.birthdayHasHappened()) {
