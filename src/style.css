@@ -21,8 +21,21 @@ p {
   padding: 0.25rem;
 }
 
+.data-btn {
+  margin: 1rem auto;
+  display: block;
+  text-align: center;
+}
+
+#sort-select,
+.sort-label {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
 .container {
-  margin-top: 8rem;
+  margin-top: 2rem;
   text-align: center;
 }
 
