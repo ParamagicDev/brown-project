@@ -1,4 +1,4 @@
-class Person {
+export default class Person {
   constructor(attributes) {
     this.attributes = attributes;
   }
@@ -12,7 +12,15 @@ class Person {
   }
 
   get dateOfBirth() {
-    const bday = this.attributes.dob.date;
+    return new Date(this.attributes.dob.date);
+  }
+
+  get dobMonth() {
+    return this.dateOfBirth.getMonth();
+  }
+
+  get dobDay() {
+    return this.dateOfBirth.getDate();
   }
 
   get gender() {
@@ -24,8 +32,8 @@ class Person {
   }
 
   dateOfBirthString() {
-    const dobAry = this.birthday.toDateString().split(' ');
-    return dobAry[1] + ' / ' + dobAry[2];
+    const dobAry = this.dateOfBirth.toDateString().split(' ');
+    return dobAry[1] + ' / ' + dobAry[2] + ' / ' + dobAry[3];
   }
 
   renderFullName() {
@@ -61,22 +69,84 @@ class Person {
     return dob;
   }
 
+  birthdayIsToday() {
+    const today = new Date();
+
+    if (today.getMonth() === this.dobMonth && today.getDate() === this.dobDay) {
+      return true;
+    }
+
+    return false;
+  }
+
+  birthdayHasHappened() {
+    const today = new Date();
+
+    // Prior month
+    if (this.dobMonth === today.getMonth()) {
+      return true;
+    }
+    // Account for same month, but prior day
+    else if (
+      today.getMonth() === this.dobMonth &&
+      today.getDate() < this.dobDay
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
+  birthdayHasNotHappened() {
+    const today = new Date();
+
+    // Future month
+    if (this.dobMonth > today.getMonth()) {
+      return true;
+    }
+    // Same month, future day
+    else if (
+      this.dobMonth === today.getMonth() &&
+      this.dobDay > today.getDate()
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
   renderBirthday() {
+    const birthday = document.createElement('p');
     const values = {
       happened: 'already happened.',
       isToday: 'is today!',
-      yetToOccur: 'has yet to occur.',
+      hasNotHappened: 'has yet to occur.',
     };
+
+    if (this.birthdayHasHappened()) {
+      birthday.innerText = values.happened;
+    }
+
+    if (this.birthdayIsToday()) {
+      birthday.innerText = values.today;
+    }
+
+    if (this.birthdayHasNotHappened()) {
+      birthday.innerText = values.hasNotHappened;
+    }
+
+    return birthday;
   }
+
   render() {
     const div = document.createElement('div');
     div.className = 'person';
 
-    const dob = renderDateOfBirth();
-    const birthday = renderBirthday();
-    const gender = renderGender();
-    const name = renderFullName();
-    const nationality = renderNationality();
+    const dob = this.renderDateOfBirth();
+    const birthday = this.renderBirthday();
+    const gender = this.renderGender();
+    const name = this.renderFullName();
+    const nationality = this.renderNationality();
 
     const children = [name, gender, nationality, dob, birthday];
     children.forEach(element => div.appendChild(element));
