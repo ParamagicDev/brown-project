@@ -87,10 +87,7 @@ export default class Person {
       return true;
     }
     // Account for same month, but prior day
-    else if (
-      this.dobMonth === today.getMonth() &&
-      this.dobDay < today.getDate()
-    ) {
+    if (this.dobMonth === today.getMonth() && this.dobDay < today.getDate()) {
       return true;
     }
 
@@ -104,10 +101,7 @@ export default class Person {
       return true;
     }
     // Account for same month, but prior day
-    else if (
-      this.dobMonth === today.getMonth() &&
-      this.dobDay > today.getDate()
-    ) {
+    if (this.dobMonth === today.getMonth() && this.dobDay > today.getDate()) {
       return true;
     }
 

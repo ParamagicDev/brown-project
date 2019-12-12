@@ -89,7 +89,7 @@ describe('Person()', () => {
   describe('#birthdayHasHappened()', () => {
     test('Should return true if the persons birthday in the past', () => {
       const person = new Person(mockPerson);
-      const today = new Date(2018, 7, 27);
+      const today = new Date(2018, 7, 29);
 
       expect(person.birthdayHasHappened(today)).toBe(true);
     });
@@ -99,16 +99,27 @@ describe('Person()', () => {
       const today = new Date(2018, 7, 28);
       expect(person.birthdayHasHappened(today)).toBe(false);
     });
+
     test('Should return false if the persons birthday is in the future', () => {
       const person = new Person(mockPerson);
-      const today = new Date(2018, 7, 29);
+      const today = new Date(2018, 7, 27);
       expect(person.birthdayHasHappened(today)).toBe(false);
+    });
+
+    test('Should work with other months', () => {
+      const person = new Person(mockPerson);
+      let today = new Date(2018, 6, 27);
+
+      expect(person.birthdayHasHappened(today)).toBe(false);
+
+      today = new Date(2018, 8, 27);
+      expect(person.birthdayHasHappened(today)).toBe(true);
     });
   });
   describe('#birthdayHasNotHappened()', () => {
     test('Should return true if the persons birthday is in the future', () => {
       const person = new Person(mockPerson);
-      const today = new Date(2018, 7, 30);
+      const today = new Date(2018, 7, 27);
       expect(person.birthdayHasNotHappened(today)).toBe(true);
     });
 
@@ -120,8 +131,18 @@ describe('Person()', () => {
 
     test('Should return false if the persons birthday is in the past', () => {
       const person = new Person(mockPerson);
-      const today = new Date(2018, 9, 27);
+      const today = new Date(2018, 9, 30);
       expect(person.birthdayHasNotHappened(today)).toBe(false);
+    });
+
+    test('Should work with other months', () => {
+      const person = new Person(mockPerson);
+      let today = new Date(2018, 8, 29);
+
+      expect(person.birthdayHasNotHappened(today)).toBe(false);
+
+      today = new Date(2018, 6, 27);
+      expect(person.birthdayHasNotHappened(today)).toBe(true);
     });
   });
 });
