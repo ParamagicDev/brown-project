@@ -7,6 +7,10 @@ module.exports = {
           node: 'current',
         },
         useBuiltIns: 'entry',
+        corejs: {
+          version: 3,
+          proposals: true,
+        },
       },
     ],
   ],

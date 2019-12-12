@@ -15,8 +15,7 @@
     "dev": "webpack-dev-server",
     "deploy": "yarn run build && gh-pages -d dist/",
     "test": "jest",
-    "test:watch": "jest --watchAll",
-    "cypress:open": "cypress open"
+    "test:watch": "jest --watchAll"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",

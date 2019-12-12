@@ -22,6 +22,7 @@ const element = document.querySelector('.container');
 async function createPeople(element) {
   const data = await retrieveData(url, parameters);
 
+  console.log(data['results']);
   // Use docfrags for better performance
   const docFrag = new DocumentFragment();
 
