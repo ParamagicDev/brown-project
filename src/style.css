@@ -1,4 +1,22 @@
 :root {
+  --gray-100: #f7fafc;
+  --gray-200: #edf2f7;
+  --gray-300: #e2e8f0;
+  --gray-400: #cbd5e0;
+  --gray-500: #a0aec0;
+  --gray-600: #718096;
+  --gray-700: #4a5568;
+  --gray-800: #2d3748;
+  --gray-900: #1a202c;
+  --bg-indigo-100: #ebf4ff;
+  --bg-indigo-200: #c3dafe;
+  --bg-indigo-300: #a3bffa;
+  --bg-indigo-400: #7f9cf5;
+  --bg-indigo-500: #667eea;
+  --bg-indigo-600: #5a67d8;
+  --bg-indigo-700: #4c51bf;
+  --bg-indigo-800: #434190;
+  --bg-indigo-900: #3c366b;
 }
 
 *,
@@ -12,5 +30,15 @@
 }
 
 .person {
-  box-shadow: ;
+  border: 1px solid black;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.first-name {
+  font: 1.5rem;
+}
+
+.last-name {
+  /* font: 1.25rem; */
 }

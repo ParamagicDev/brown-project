@@ -35,10 +35,21 @@ module.exports = {
     new HtmlWebpackPlugin({template: './src/index.html'}),
   ],
 
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+    aggregateTimeout: 300,
+    poll: 1000,
+  },
   devServer: {
+    host: '0.0.0.0',
+    port: 8080,
     open: true,
     contentBase: path.resolve(__dirname, 'dist'),
     watchContentBase: true,
     compress: true,
+    watchOptions: {
+      poll: true,
+    },
   },
 };
