@@ -12,6 +12,5 @@ RUN yarn install
 COPY . /myapp
 
 EXPOSE 8080
-VOLUME [".", "/myapp"]
 CMD ["yarn", "dev"]
 
