@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "webpack --mode='production'",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --host='0.0.0.0'",
     "deploy": "yarn run build && gh-pages -d dist/",
     "test": "jest",
     "test:watch": "jest --watchAll"

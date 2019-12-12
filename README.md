@@ -17,8 +17,10 @@ yarn run dev # open up in the browser @ localhost:8080
 
 ```bash
 docker build . --tag=brown-project
-docker run yarn run test
+docker run -p 8080:8080 brown-project
 ```
+
+Now you can open up localhost:8080 in the browser and view the project
 
 ## Assignment
 
@@ -40,7 +42,7 @@ Public API: https://randomuser.me
 [x] Last name
 [x] Country
 [x] Date of birth
-[ ] Create and display an additional “Birthday” field whose value is dynamically
+[x] Create and display an additional “Birthday” field whose value is dynamically
 calculated.
 
 - The value should identify if the user’s birthday: a) already happened, b) is
@@ -53,7 +55,7 @@ descending order
 
 ## Additional features
 
-[ ] Using Docker to create a consistent testing environment and allow people to
+[x] Using Docker to create a consistent testing environment and allow people to
 use a nodejs runtime if they don't have it installed (and cross platform)
 [x] Use Webpack for code bundling
 [x] Use babel for transpiling to ES5
@@ -70,3 +72,5 @@ handed for the project.
 I used Webpack / Jest / Babel due to having written multiple sites with the
 libraries. I even wrote a blog post on it. <br>
 [https://paramagicdev.github.io/my-blog/javascript/usingJestWithImportAndExport/](https://paramagicdev.github.io/my-blog/javascript/usingJestWithImportAndExport/)
+
+Everything can be run through Docker.
