@@ -41,8 +41,8 @@ export default function sortingPeople() {
 
   function sortByDateOfBirth(people) {
     const compareDob = (person1, person2) => {
-      const dob1 = person1.dateOfBirth.getTime();
-      const dob2 = person2.dateOfBirth.getTime();
+      const dob1 = person1.dateOfBirth.setHours(0, 0, 0, 0).getTime();
+      const dob2 = person2.dateOfBirth.setHours(0, 0, 0, 0).getTime();
 
       if (dob1 > dob2) {
         return -1;

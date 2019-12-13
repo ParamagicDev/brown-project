@@ -30,7 +30,6 @@ export default function DataBtn() {
       docFrag.appendChild(person.render());
     });
 
-    // document.body.insertBefore(sortBtn.render(), docFrag.childNodes[0]);
     docFrag.insertBefore(sortBtn.render(people), docFrag.childNodes[0]);
     element.innerHTML = '';
     element.appendChild(docFrag);

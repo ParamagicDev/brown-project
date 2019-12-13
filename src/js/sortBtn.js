@@ -53,7 +53,7 @@ export default function SortBtn() {
     const optgroup = document.createElement('optgroup');
     optgroup.label = 'Date Of Birth';
 
-    const dobOptions = ['(Jan-Dec)', '(Dec-Jan)'];
+    const dobOptions = ['(Young-Old)', '(Old-Young)'];
     dobOptions.forEach(opt => {
       const optElement = document.createElement('option');
       optElement.innerText = 'DOB: ' + opt;
@@ -77,7 +77,7 @@ export default function SortBtn() {
     return docFrag;
   };
 
-  const render = () => {
+  const render = people => {
     const docFrag = new DocumentFragment();
 
     const label = renderLabel();
