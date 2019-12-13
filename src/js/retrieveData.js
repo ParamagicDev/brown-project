@@ -19,7 +19,6 @@ export default async function retrieveData(url, parameters) {
     const result = await response.json();
     return result;
   } catch (error) {
-    console.log(error);
-    return false;
+    return null;
   }
 }

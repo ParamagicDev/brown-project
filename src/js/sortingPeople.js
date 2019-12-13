@@ -1,4 +1,4 @@
-export default function sortingPeople() {
+export default (function sortingPeople() {
   function sortByFirstName(people) {
     const compareFirst = (person1, person2) => {
       const name1 = person1.firstName + ' ' + person1.lastName;
@@ -41,8 +41,8 @@ export default function sortingPeople() {
 
   function sortByDateOfBirth(people) {
     const compareDob = (person1, person2) => {
-      const dob1 = person1.dateOfBirth.setHours(0, 0, 0, 0).getTime();
-      const dob2 = person2.dateOfBirth.setHours(0, 0, 0, 0).getTime();
+      const dob1 = person1.dateOfBirth.getTime();
+      const dob2 = person2.dateOfBirth.getTime();
 
       if (dob1 > dob2) {
         return -1;
@@ -57,4 +57,10 @@ export default function sortingPeople() {
 
     return people.sort(compareDob);
   }
-}
+
+  return {
+    sortByFirstName,
+    sortByLastName,
+    sortByDateOfBirth,
+  };
+})();
