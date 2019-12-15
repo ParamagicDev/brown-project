@@ -27,20 +27,15 @@ module.exports = {
           },
         },
       },
-
-      {
-        test: /\.ico/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
-      },
     ],
   },
 
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({template: './src/index.html'}),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      favicon: './src/favicon.ico',
+    }),
   ],
 
   devServer: {
