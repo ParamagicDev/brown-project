@@ -3,7 +3,28 @@ import sortingPeople from './sortingPeople.js';
 export default function SortOptions() {
   const _nameOptions = ['(A-Z)', '(Z-A)'];
 
-  const renderLabel = () => {
+  const _sortByOptions = {
+    firstName: {
+      'firstName-a-to-z': people => sortingPeople.sortByFirstName(people),
+      'firstName-z-to-a': people =>
+        sortingPeople.sortByFirstName(people).reverse(),
+    },
+    lastName: {
+      'lastName-a-to-z': people => sortingPeople.sortByLastName(people),
+      'lastName-z-to-a': people =>
+        sortingPeople.sortByLastName(people).reverse(),
+    },
+    dob: {
+      'dob-young-to-old': people => sortingPeople.sortByDateOfBirth(people),
+      'dob-old-to-young': people =>
+        sortingPeople.sortByDateOfBirth(people).reverse(),
+      'dob-jan-dec': people => sortingPeople.sortByDobMonthDay(people),
+      'dob-dec-jan': people =>
+        sortingPeople.sortByDobMonthDay(people).reverse(),
+    },
+  };
+
+  function renderLabel() {
     const label = document.createElement('label');
 
     label.htmlFor = 'sort-select';
@@ -11,17 +32,17 @@ export default function SortOptions() {
     label.innerText = 'Sort by:';
 
     return label;
-  };
+  }
 
-  const renderInitialOpt = () => {
+  function renderInitialOpt() {
     const initialOpt = document.createElement('option');
     initialOpt.value = '';
     initialOpt.innerText = '-- Select a sorting method --';
     return initialOpt;
-  };
+  }
 
-  const renderFirstName = () => {
-    const values = ['first-a-to-z', 'first-z-to-a'];
+  function renderFirstName() {
+    const values = Object.keys(_sortByOptions.firstName);
 
     const docFrag = new DocumentFragment();
     const optgroup = document.createElement('optgroup');
@@ -36,10 +57,10 @@ export default function SortOptions() {
 
     docFrag.appendChild(optgroup);
     return docFrag;
-  };
+  }
 
-  const renderLastName = () => {
-    const values = ['last-a-to-z', 'last-z-to-a'];
+  function renderLastName() {
+    const values = Object.keys(_sortByOptions.lastName);
 
     const docFrag = new DocumentFragment();
     const optgroup = document.createElement('optgroup');
@@ -53,16 +74,16 @@ export default function SortOptions() {
 
     docFrag.appendChild(optgroup);
     return docFrag;
-  };
+  }
 
-  const renderDateOfBirth = () => {
-    const values = ['young-to-old', 'old-to-young'];
+  function renderDateOfBirth() {
+    const values = Object.keys(_sortByOptions.dob);
     const docFrag = new DocumentFragment();
 
     const optgroup = document.createElement('optgroup');
     optgroup.label = 'Date Of Birth';
 
-    const dobOptions = ['(Young-Old)', '(Old-Young)'];
+    const dobOptions = ['(Young-Old)', '(Old-Young)', '(Jan-Dec)', '(Dec-Jan)'];
     dobOptions.forEach((opt, index) => {
       const optElement = document.createElement('option');
       optElement.innerText = 'DOB: ' + opt;
@@ -72,9 +93,9 @@ export default function SortOptions() {
 
     docFrag.appendChild(optgroup);
     return docFrag;
-  };
+  }
 
-  const renderOptions = () => {
+  function renderOptions() {
     const docFrag = new DocumentFragment();
 
     const opts = [
@@ -85,6 +106,22 @@ export default function SortOptions() {
     ];
     opts.forEach(e => docFrag.appendChild(e));
     return docFrag;
+  }
+
+  const handleSortingListener = (element, people) => {
+    element.addEventListener('change', event => {
+      const peopleDiv = document.querySelector('.people');
+      const docFrag = new DocumentFragment();
+
+      const eventValue = event.target.value;
+      const eventPrefix = eventValue.split('-')[0];
+      const sortByFn = _sortByOptions[eventPrefix][eventValue];
+      const sortedPeople = sortByFn(people);
+
+      peopleDiv.innerHTML = '';
+      sortedPeople.forEach(person => docFrag.appendChild(person.render()));
+      peopleDiv.appendChild(docFrag);
+    });
   };
 
   const render = people => {
@@ -96,13 +133,7 @@ export default function SortOptions() {
     const sortSelect = document.createElement('select');
     sortSelect.id = 'sort-select';
 
-    sortSelect.addEventListener('change', event => {
-      const container = document.querySelector('.container');
-      const docFrag = new DocumentFragment();
-
-      // sortedPeople.forEach(person => docFrag.appendChild(person.render()));
-      // console.log(event); console.log(event.target.value);
-    });
+    handleSortingListener(sortSelect, people);
 
     sortSelect.appendChild(renderOptions());
     docFrag.appendChild(sortSelect);

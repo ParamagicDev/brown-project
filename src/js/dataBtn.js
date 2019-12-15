@@ -54,16 +54,21 @@ export default function DataBtn() {
     const people = [];
 
     // Parse the results
+    const peopleDiv = document.createElement('div');
+    peopleDiv.className = 'people';
     data['results'].forEach(personAttrs => {
       const person = new Person(personAttrs);
+      peopleDiv.appendChild(person.render());
+      // Store a reference of the person in the people array to avoid excess API calls
       people.push(person);
-      docFrag.appendChild(person.render());
     });
 
     resetElement(element);
 
     // Insert the sorting options
-    docFrag.insertBefore(sortOptions.render(people), docFrag.childNodes[0]);
+    docFrag.appendChild(sortOptions.render(people));
+    docFrag.appendChild(peopleDiv);
+    // docFrag.insertBefore(sortOptions.render(people), docFrag.childNodes[0]);
     element.appendChild(docFrag);
   }
 

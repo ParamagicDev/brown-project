@@ -58,9 +58,39 @@ export default (function sortingPeople() {
     return people.sort(compareDob);
   }
 
+  function sortByDobMonthDay(people) {
+    const compareMonthAndDay = (person1, person2) => {
+      const dob1 = person1.dateOfBirth;
+      const dob2 = person2.dateOfBirth;
+
+      if (dob1.getMonth() > dob2.getMonth()) {
+        return 1;
+      }
+
+      if (dob1.getMonth() < dob2.getMonth()) {
+        return -1;
+      }
+
+      if (dob1.getMonth() === dob2.getMonth()) {
+        if (dob1.getDay() > dob2.getDay()) {
+          return 1;
+        }
+
+        if (dob1.getDay() < dob2.getDay()) {
+          return -1;
+        }
+      }
+
+      return 0;
+    };
+
+    return people.sort(compareMonthAndDay);
+  }
+
   return {
     sortByFirstName,
     sortByLastName,
     sortByDateOfBirth,
+    sortByDobMonthDay,
   };
 })();
