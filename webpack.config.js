@@ -30,7 +30,7 @@ module.exports = {
 
       {
         test: /\.ico/,
-        use: ['raw-loader'],
+        use: ['file-loader'],
       },
     ],
   },
