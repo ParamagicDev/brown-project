@@ -16,11 +16,11 @@ export default class Person {
   }
 
   get dobMonth() {
-    return this.dateOfBirth.getMonth();
+    return parseInt(this.dateOfBirth.getMonth(), 10);
   }
 
   get dobDay() {
-    return this.dateOfBirth.getDate();
+    return parseInt(this.dateOfBirth.getDate(), 10);
   }
 
   get gender() {

@@ -60,23 +60,25 @@ export default (function sortingPeople() {
 
   function sortByDobMonthDay(people) {
     const compareMonthAndDay = (person1, person2) => {
-      const dob1 = person1.dateOfBirth;
-      const dob2 = person2.dateOfBirth;
+      const month1 = person1.dobMonth;
+      const month2 = person2.dobMonth;
+      const day1 = person1.dobDay;
+      const day2 = person2.dobDay;
 
-      if (dob1.getMonth() > dob2.getMonth()) {
+      if (month1 > month2) {
         return 1;
       }
 
-      if (dob1.getMonth() < dob2.getMonth()) {
+      if (month1 < month2) {
         return -1;
       }
 
-      if (dob1.getMonth() === dob2.getMonth()) {
-        if (dob1.getDay() > dob2.getDay()) {
+      if (month1 === month2) {
+        if (day1 > day2) {
           return 1;
         }
 
-        if (dob1.getDay() < dob2.getDay()) {
+        if (day1 < day2) {
           return -1;
         }
       }

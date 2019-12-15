@@ -95,6 +95,8 @@ so meant to test internal APIs. As such, I cut it from the project.
 
 ## Talking points
 
-Sorting functionality
+- Sorting functionality
 
-Off by one errors with dates when comparing with localtime vs UTC time. Theoretically, its a persons birthday in one time zone but not another.
+  - Sorting by month / day requires parsing the date month and date day values
+
+- Off by one errors with dates when comparing with localtime vs UTC time. Theoretically, its a persons birthday in one time zone but not another. Western hemisphere is behind 1 day if UTC time is set to 0.
