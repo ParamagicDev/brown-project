@@ -59,8 +59,14 @@ calculated.
 
 Optional (Bonus Feature)
 
-[ ] Implement sorting functionality on a column or columns of your choice e.g., ascending /
+[x] Implement sorting functionality on a column or columns of your choice e.g., ascending /
 descending order
+
+### Sorting capabilities
+
+- Sort by first name or by last name alphabetically a-z and z-a
+- Sort by age young to old and old to young
+- Sort by birth month and day Jan-Dec or Dec-Jan
 
 ## Additional features
 
@@ -92,6 +98,7 @@ so meant to test internal APIs. As such, I cut it from the project.
 
 - Using [date-fns](https://date-fns.org/) for comparing dates.
 - Using [lodash](https://lodash.com/) for sorting algorithms.
+- Using a frontend framework such as Vue, React, Angular, or Svelte.
 
 ## Talking points
 
