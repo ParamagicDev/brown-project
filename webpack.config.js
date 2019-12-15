@@ -27,6 +27,11 @@ module.exports = {
           },
         },
       },
+
+      {
+        test: /\.ico/,
+        use: ['raw-loader'],
+      },
     ],
   },
 

@@ -1,4 +1,5 @@
 import './style.css';
+import './favicon.ico';
 
 // Used for polyfilling async functions
 import 'core-js';
