@@ -86,11 +86,24 @@ describe('sortingPeople', () => {
     });
   });
   describe('#sortByDateOfBirth()', () => {
-    const sortedPeople = sortingPeople.sortByDateOfBirth(people);
+    test('Should sort based on patients age, young to old', () => {
+      const sortedPeople = sortingPeople.sortByDateOfBirth(people);
 
-    expect(sortedPeople[0]).toBe(person3);
-    expect(sortedPeople[1]).toBe(person2);
-    expect(sortedPeople[2]).toBe(person1);
-    expect(sortedPeople[3]).toBe(person4);
+      expect(sortedPeople[0]).toBe(person3);
+      expect(sortedPeople[1]).toBe(person2);
+      expect(sortedPeople[2]).toBe(person1);
+      expect(sortedPeople[3]).toBe(person4);
+    });
+  });
+
+  describe('#sortByDobMonthDay()', () => {
+    test('Should sort based on pateints dob month then day, IE: Jan 29 then Feb 26', () => {
+      const sortedPeople = sortingPeople.sortByDobMonthDay(people);
+
+      expect(sortedPeople[0]).toBe(person2);
+      expect(sortedPeople[1]).toBe(person4);
+      expect(sortedPeople[2]).toBe(person1);
+      expect(sortedPeople[3]).toBe(person3);
+    });
   });
 });
