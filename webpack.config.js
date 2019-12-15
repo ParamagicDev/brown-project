@@ -30,7 +30,10 @@ module.exports = {
 
       {
         test: /\.ico/,
-        use: ['file-loader'],
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
       },
     ],
   },
