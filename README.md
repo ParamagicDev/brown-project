@@ -1,6 +1,6 @@
 # Purpose
 
-To call a public API ([https://randomuser.me](https://randomuser.me) and
+To call a public API [https://randomuser.me](https://randomuser.me) and
 return 20 random user from the US & Canada.
 
 ## Getting started
@@ -40,27 +40,27 @@ Public API: https://randomuser.me
 
 ### Requirements:
 
-[x] Making a single call to the randomuser.me API, get 20 random users.
-[x] Do not make additional calls to the API.
-[x] Users in the result set should be from the United States or Canada.
+- [x] Making a single call to the randomuser.me API, get 20 random users.
+- [x] Do not make additional calls to the API.
+- [x] Users in the result set should be from the United States or Canada.
 
 #### Display the following fields for each user:
 
-[x] Gender
-[x] First name
-[x] Last name
-[x] Country
-[x] Date of birth
-[x] Create and display an additional “Birthday” field whose value is dynamically
-calculated.
+- [x] Gender
+- [x] First name
+- [x] Last name
+- [x] Country
+- [x] Date of birth
+- [x] Create and display an additional “Birthday” field whose value is dynamically
+      calculated.
 
 - The value should identify if the user’s birthday: a) already happened, b) is
   today(!), or c) has yet to occur, based on today’s date for the current year.
 
 Optional (Bonus Feature)
 
-[x] Implement sorting functionality on a column or columns of your choice e.g., ascending /
-descending order
+- [x] Implement sorting functionality on a column or columns of your choice e.g., ascending /
+      descending order
 
 ### Sorting capabilities
 
@@ -70,11 +70,11 @@ descending order
 
 ## Additional features
 
-[x] Using Docker to create a consistent testing environment and allow people to
-use a nodejs runtime if they don't have it installed (and cross platform)
-[x] Use Webpack for code bundling
-[x] Use babel for transpiling to ES5
-[x] Use Jest for unit / integration testing
+- [x] Using Docker to create a consistent testing environment and allow people to
+- use a nodejs runtime if they don't have it installed (and cross platform)
+- [x] Use Webpack for code bundling
+- [x] Use babel for transpiling to ES5
+- [x] Use Jest for unit / integration testing
 
 ## Point of interest
 
